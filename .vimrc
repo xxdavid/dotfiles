@@ -54,3 +54,12 @@ autocmd FileType texy setlocal spell spelllang=cs
 autocmd FileType markdown setlocal spell spelllang=cs
 set spellcapcheck=no
 hi SpellBad ctermfg=red ctermbg=none
+
+" Turbo navigation
+nnoremap <silent> H @='5h'<CR>
+nnoremap <silent> J @='5gj'<CR>
+nnoremap <silent> K @='5gk'<CR>
+nnoremap <silent> L @='5l'<CR>
+
+" Remap Join lines to m
+nnoremap <silent> m @='J'<CR>
