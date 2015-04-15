@@ -15,7 +15,7 @@ Plugin 'othree/html5.vim'
 Plugin 'JulesWang/css.vim'
 Bundle 'ntpeters/vim-better-whitespace'
 
-Bundle 'jooize/vim-colemak'
+" Bundle 'jooize/vim-colemak'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
