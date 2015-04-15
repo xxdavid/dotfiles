@@ -13,6 +13,7 @@ Bundle 'altercation/vim-colors-solarized'
 Plugin 'othree/html5.vim'
 Plugin 'JulesWang/css.vim'
 Bundle 'ntpeters/vim-better-whitespace'
+Plugin 'editorconfig/editorconfig-vim'
 
 " Bundle 'jooize/vim-colemak'
 
