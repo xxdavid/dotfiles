@@ -63,3 +63,7 @@ nnoremap <silent> L @='5l'<CR>
 
 " Remap Join lines to m
 nnoremap <silent> m @='J'<CR>
+
+" Smartcase in searching
+set ignorecase
+set smartcase
