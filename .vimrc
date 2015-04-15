@@ -67,3 +67,6 @@ nnoremap <silent> m @='J'<CR>
 " Smartcase in searching
 set ignorecase
 set smartcase
+
+" Tab width
+set shiftwidth=2
