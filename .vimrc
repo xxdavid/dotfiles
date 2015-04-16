@@ -70,3 +70,6 @@ set smartcase
 
 " Tab width
 set shiftwidth=2
+
+" Disable swap
+set noswapfile
