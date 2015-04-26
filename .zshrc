@@ -28,3 +28,6 @@ export PATH="$PATH:~/go/bin"
 export PATH="$PATH:~/pebble-dev/PebbleSDK-current/bin"
 
 export GOPATH=$HOME/go
+
+# Node Version Manager
+. ~/.nvm/nvm.sh
