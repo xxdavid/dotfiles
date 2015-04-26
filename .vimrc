@@ -56,13 +56,13 @@ set spellcapcheck=no
 hi SpellBad ctermfg=red ctermbg=none
 
 " Turbo navigation
-nnoremap <silent> H @='5h'<CR>
-nnoremap <silent> J @='5gj'<CR>
-nnoremap <silent> K @='5gk'<CR>
-nnoremap <silent> L @='5l'<CR>
+noremap H 5h
+noremap J 5gj
+noremap K 5gk
+noremap L 5l
 
 " Remap Join lines to m
-nnoremap <silent> m @='J'<CR>
+noremap m J
 
 " Smartcase in searching
 set ignorecase
