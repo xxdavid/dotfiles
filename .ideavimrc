@@ -1,0 +1,11 @@
+" Turbo navigation
+noremap H 5h
+noremap J 5gj
+noremap K 5gk
+noremap L 5l
+
+" Remap Join lines to m
+noremap m J
+
+" Escape with jj in insert mode
+inoremap jj <ESC>
