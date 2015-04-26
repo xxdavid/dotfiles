@@ -64,6 +64,9 @@ noremap L 5l
 " Remap Join lines to m
 noremap m J
 
+" Escape with jj in insert mode
+inoremap jj <ESC>
+
 " Smartcase in searching
 set ignorecase
 set smartcase
