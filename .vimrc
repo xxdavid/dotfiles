@@ -14,12 +14,15 @@ Plugin 'othree/html5.vim'
 Plugin 'JulesWang/css.vim'
 Bundle 'ntpeters/vim-better-whitespace'
 Plugin 'editorconfig/editorconfig-vim'
-
-" Bundle 'jooize/vim-colemak'
+Plugin 'reedes/vim-colors-pencil'
+Plugin 'othree/yajs.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'ternjs/tern_for_vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'aperezdc/vim-template'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
-filetype plugin indent on
 
 " Enable syntax highliting
 syntax on
@@ -28,7 +31,6 @@ syntax on
 set encoding=utf-8 nobomb
 
 " Solarized theme
-set background=dark
 colorscheme solarized
 let g:solarized_termtrans=1
 
@@ -36,7 +38,16 @@ let g:solarized_termtrans=1
 set laststatus=2
 let g:airline_powerline_fonts = 1
 " Solarized theme for airline is ugly
-autocmd VimEnter * AirlineTheme dark
+
+" Colors
+if $ITERM_PROFILE == "Light"
+  set background=light
+  let g:airline_theme='light'
+else
+  set background=dark
+  let g:airline_theme='dark'
+  hi SpellBad ctermfg=red ctermbg=none
+endif
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
@@ -53,7 +64,6 @@ autocmd BufRead,BufNewFile *.markdown filetype=markdown
 autocmd FileType texy setlocal spell spelllang=cs
 autocmd FileType markdown setlocal spell spelllang=cs
 set spellcapcheck=no
-hi SpellBad ctermfg=red ctermbg=none
 
 " Turbo navigation
 noremap H 5h
@@ -72,7 +82,49 @@ set ignorecase
 set smartcase
 
 " Tab width
-set shiftwidth=2
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab
+
+au FileType texy setlocal sw=2 sts=2 et
 
 " Disable swap
 set noswapfile
+
+" Disable creating backupcopy
+set nobackup
+set nowritebackup
+
+" Smart indenting
+set smartindent
+
+" Normal backspace
+set backspace=2
+
+" Save with ww in insert mode
+inoremap ff <C-C>:update<CR>
+
+" Nerd Commenter
+filetype plugin on
+
+" Sudo write
+cnoremap w!! w !sudo tee > /dev/null %
+
+" Compile and run file with F4
+autocmd filetype javascript nnoremap <F4> :w <bar> exec '!node '.shellescape('%')<CR>
+autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype make nnoremap <F4> :w <bar> exec '!make'<CR>
+autocmd filetype sh nnoremap <F4> :w <bar> exec '!sh '.shellescape('%')<CR>
+
+" YCM default config
+let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf_default.py"
+
+" Templates folder
+let g:templates_directory = "~/.vim/templates/"
+
+" Add closing brace
+autocmd filetype javascript,php,cpp,c,java inoremap { {<CR>}<Esc>ko
+
+" Insert mode with right indentation with f
+noremap f <Esc>ddko
