@@ -18,8 +18,11 @@ Plugin 'reedes/vim-colors-pencil'
 Plugin 'othree/yajs.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ternjs/tern_for_vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'aperezdc/vim-template'
+Plugin 'szw/vim-g'
+Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'rbtnn/game_engine.vim'
+Plugin 'rbtnn/mario.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -29,6 +32,7 @@ syntax on
 
 " UTF-8 without BOM
 set encoding=utf-8 nobomb
+set fileencodings=utf-8,cp1250
 
 " Solarized theme
 colorscheme solarized
@@ -103,7 +107,7 @@ set smartindent
 set backspace=2
 
 " Save with ww in insert mode
-inoremap ff <C-C>:update<CR>
+inoremap kk <C-C>:update<CR>
 
 " Nerd Commenter
 filetype plugin on
@@ -113,9 +117,12 @@ cnoremap w!! w !sudo tee > /dev/null %
 
 " Compile and run file with F4
 autocmd filetype javascript nnoremap <F4> :w <bar> exec '!node '.shellescape('%')<CR>
-autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%:r').'.cpp -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype make nnoremap <F4> :w <bar> exec '!make'<CR>
 autocmd filetype sh nnoremap <F4> :w <bar> exec '!sh '.shellescape('%')<CR>
+autocmd filetype python nnoremap <F4> :w <bar> exec '!python '.shellescape('%')<CR>
+autocmd filetype ruby nnoremap <F4> :w <bar> exec '!ruby '.shellescape('%')<CR>
+autocmd BufRead ~/Dropbox/Documents/ZMP/content.texy nnoremap <F4> :w <bar> exec '!make'<CR>
 
 " YCM default config
 let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf_default.py"
@@ -128,3 +135,21 @@ autocmd filetype javascript,php,cpp,c,java inoremap { {<CR>}<Esc>ko
 
 " Insert mode with right indentation with f
 noremap f <Esc>ddko
+
+" Use the first spell check variant
+noremap t z=1<Enter><Enter>
+
+" Open Google search with Safari
+let g:vim_g_open_command = "open -a Safari"
+
+" Enable spellcheck in git commit
+autocmd FileType gitcommit setlocal spell
+
+" Disable Markdown folding
+let g:vim_markdown_folding_disabled = 1
+
+" Use grip for markdown preview
+let vim_markdown_preview_github=1
+
+" Insert new list item with ;
+noremap ; o-<Space>

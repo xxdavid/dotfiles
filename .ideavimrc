@@ -9,3 +9,13 @@ noremap m J
 
 " Escape with jj in insert mode
 inoremap jj <ESC>
+
+" Save with ww in insert mode
+inoremap kk <C-C>:update<CR>
+
+" Capital :W
+command W w
+
+" Smartcase in searching
+set ignorecase
+set smartcase

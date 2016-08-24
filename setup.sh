@@ -51,6 +51,8 @@ defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 ## Prevent Time Machine from prompting to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNosksForBackup -bool true
+## Save screenshots to ~/Downloads
+defaults write com.apple.screencapture location ~/Downloads/; killall SystemUIServer
 
 # Install homebrew formulas
 echo "Installing homebrew formulas"
