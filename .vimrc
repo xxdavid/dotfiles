@@ -21,8 +21,6 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'aperezdc/vim-template'
 Plugin 'szw/vim-g'
 Plugin 'JamshedVesuna/vim-markdown-preview'
-Plugin 'rbtnn/game_engine.vim'
-Plugin 'rbtnn/mario.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -106,7 +104,7 @@ set smartindent
 " Normal backspace
 set backspace=2
 
-" Save with ww in insert mode
+" Save with kk in insert mode
 inoremap kk <C-C>:update<CR>
 
 " Nerd Commenter
@@ -140,7 +138,7 @@ noremap f <Esc>ddko
 noremap t z=1<Enter><Enter>
 
 " Open Google search with Safari
-let g:vim_g_open_command = "open -a Safari"
+let g:vim_g_open_command = "open"
 
 " Enable spellcheck in git commit
 autocmd FileType gitcommit setlocal spell
